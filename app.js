@@ -1,5 +1,9 @@
 const parentNode = document.querySelector('#container');
 
+parentNode.style.display = 'flex';
+parentNode.style.flexWrap = 'wrap';
+parentNode.style.width = '460px';
+
 function canvas(num){
     for(let i = 0; i < num; i++){
         const square = document.createElement('div');
