@@ -14,5 +14,4 @@ function canvas(num){
         parentNode.appendChild(square);
     }
 }
-
 canvas(256);
