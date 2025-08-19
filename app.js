@@ -21,13 +21,6 @@ btnColor.classList.add('btn_color');
 btnColor.textContent = 'Change Color';
 root.appendChild(btnColor);
 
-
-// // Clear sketch 
-// function clearCanvas(){
-//     const x = document.querySelectorAll('.pixel');
-//     x.innerHTML = "";
-// }
-
 // Prompt the number of pixels
 btnPixel.addEventListener('click', function(){
     var num;
@@ -35,17 +28,11 @@ btnPixel.addEventListener('click', function(){
         num = prompt('Enter the number of pixels (per side):');
         if(num <= 100) { break } alert('error') 
         }
-        clearCanvas();
         canvas(num);
 });
 
 // Let's play!
 function canvas(num){
-    // Claer
-    function clearCanvas(){
-    const x = document.querySelectorAll('.pixel');
-    x.innerHTML = "";
-}
     // Add Pixel
     for(let i = 0; i < num*num; i++){
         const square = document.createElement('div');
