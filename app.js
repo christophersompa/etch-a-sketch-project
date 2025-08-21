@@ -1,35 +1,32 @@
-// Root node
 const root = document.querySelector('body')
-
-// parent Node
 const parentNode = document.querySelector('#container');
+
+const addPxl = document.createElement('button');
+const header = document.querySelector('h1');
+const chgColor = document.createElement('button');
+
 parentNode.style.display = 'flex';
 parentNode.style.flexWrap = 'wrap';
 parentNode.style.width = '460px';
 
-// Enter number of pixels
-const btnPixel = document.createElement('button');
-const header = document.querySelector('h1');
-btnPixel.classList.add('btn_pixels');
-btnPixel.textContent = 'Enter Pixels';
-root.appendChild(btnPixel);
-header.after(btnPixel);
+addPxl.classList.add('addPxl');
+addPxl.textContent = 'Enter Pixels';
+root.appendChild(addPxl);
+header.after(addPxl);
 
-// Create the 'change color' button
-const btnColor = document.createElement('button');
-btnColor.classList.add('btn_color');
-btnColor.textContent = 'Change Color';
-root.appendChild(btnColor);
+chgColor.classList.add('chgcColor');
+chgColor.textContent = 'Change Color';
+root.appendChild(chgColor);
 
 // Prompt the number of pixels
-btnPixel.addEventListener('click', function(){
+addPxl.addEventListener('click', function(){
     var num;
     while(true){
         num = prompt('Enter the number of pixels (per side):');
         if(num <= 100) { break } alert('error') 
         }
-        if(document.querySelectorAll('.pixel').length > 0){
-            clear('.pixel');
+        if(document.querySelectorAll('.pxl').length > 0){
+            clear('.pxl');
             canvas(num);
         } else {
             canvas(num);
@@ -37,37 +34,35 @@ btnPixel.addEventListener('click', function(){
 });
 
 function clear(e){
-    const allPixels = document.querySelectorAll(e);
-    for(let i = 0; i < allPixels.length; i++){
-        allPixels[i].remove();
+    const allPxls = document.querySelectorAll(e);
+    for(let i = 0; i < allPxls.length; i++){
+        allPxls[i].remove();
     }
 }
 
-// Let's play!
 function canvas(num){
-    // Add Pixel
     for(let i = 0; i < num*num; i++){
-        const square = document.createElement('div');
-        square.classList.add('pixel');
-        square.style.width = '20px';
-        square.style.height = '20px';
-        square.style.border = '1px solid black';
-        square.style.margin = '3px';
-        parentNode.appendChild(square);
+        const pxl = document.createElement('div');
+        pxl.classList.add('pxl');
+        pxl.style.width = '20px';
+        pxl.style.height = '20px';
+        pxl.style.border = '1px solid black';
+        pxl.style.margin = '3px';
+        parentNode.appendChild(pxl);
     }
-    // Start sketching
-    const allPixels = document.getElementsByClassName('pixel');
-    for (let i = 0; i < allPixels.length; i++) {
-        allPixels[i].addEventListener('mouseenter', function() {
-        allPixels[i].style.backgroundColor = 'black';
+
+    const allPxls = document.getElementsByClassName('pxl');
+    for (let i = 0; i < allPxls.length; i++) {
+        allPxls[i].addEventListener('mouseenter', function() {
+        allPxls[i].style.backgroundColor = 'black';
         });
     }
-    // Change color
+
     btnColor.addEventListener('click', function(){
         const color = prompt('What color do you want?');
-        for(let i = 0; i < allPixels.length; i++){
-            allPixels[i].addEventListener('mouseenter', function(){
-            allPixels[i].style.backgroundColor = color;
+        for(let i = 0; i < allPxls.length; i++){
+            allPxls[i].addEventListener('mouseenter', function(){
+            allPxls[i].style.backgroundColor = color;
         })
         }
     });
