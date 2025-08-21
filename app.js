@@ -28,8 +28,20 @@ btnPixel.addEventListener('click', function(){
         num = prompt('Enter the number of pixels (per side):');
         if(num <= 100) { break } alert('error') 
         }
-        canvas(num);
+        if(document.querySelectorAll('.pixel').length > 0){
+            clear('.pixel');
+            canvas(num);
+        } else {
+            canvas(num);
+        }
 });
+
+function clear(e){
+    const allPixels = document.querySelectorAll(e);
+    for(let i = 0; i < allPixels.length; i++){
+        allPixels[i].remove();
+    }
+}
 
 // Let's play!
 function canvas(num){
