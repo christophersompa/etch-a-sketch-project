@@ -18,28 +18,6 @@ chgColor.classList.add('chgcColor');
 chgColor.textContent = 'Change Color';
 root.appendChild(chgColor);
 
-// Prompt the number of pixels
-addPxl.addEventListener('click', function(){
-    var num;
-    while(true){
-        num = prompt('Enter the number of pixels (per side):');
-        if(num <= 100) { break } alert('error') 
-        }
-        if(document.querySelectorAll('.pxl').length > 0){
-            clear('.pxl');
-            canvas(num);
-        } else {
-            canvas(num);
-        }
-});
-
-function clear(e){
-    const allPxls = document.querySelectorAll(e);
-    for(let i = 0; i < allPxls.length; i++){
-        allPxls[i].remove();
-    }
-}
-
 function canvas(num){
     for(let i = 0; i < num*num; i++){
         const pxl = document.createElement('div');
@@ -67,3 +45,24 @@ function canvas(num){
         }
     });
 }
+
+function clear(e){
+    const allPxls = document.querySelectorAll(e);
+    for(let i = 0; i < allPxls.length; i++){
+        allPxls[i].remove();
+    }
+}
+
+addPxl.addEventListener('click', function(){
+    var num;
+    while(true){
+        num = prompt('Enter the number of pixels (per side):');
+        if(num <= 100) { break } alert('error') 
+        }
+        if(document.querySelectorAll('.pxl').length > 0){
+            clear('.pxl');
+            canvas(num);
+        } else {
+            canvas(num);
+        }
+});
